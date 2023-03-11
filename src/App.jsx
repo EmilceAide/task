@@ -1,8 +1,8 @@
-import TaskList from './Task'
+import TaskList from './TaskList.jsx'
 function App(){
   return(
   <div>
-     <TaskList/>
+     <TaskList></TaskList>
   </div>
   ) 
 }
