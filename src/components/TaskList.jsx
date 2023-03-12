@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import TaskCard from "./TaskCard";
-import { TaskContext } from "./../context/TaskContext";
+import { TaskContext } from "./context/TaskContext";
 
 function TaskList() {
   const { tasks } = useContext(TaskContext);
