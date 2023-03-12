@@ -24,6 +24,27 @@ export function TaskContextProvider(props) {
   const deleteTask = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
+  const editTask = (taskId, updatedFields) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, ...updatedFields };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+  };
+  
+  const updateTask = (updatedTask) => {
+    setTasks(tasks.map(task => {
+      if (task.id === updatedTask.id) {
+        return {
+          ...task,
+          ...updatedTask
+        };
+      }
+      return task;
+    }));
+  };
 
   return (
     <TaskContext.Provider
@@ -31,9 +52,13 @@ export function TaskContextProvider(props) {
         tasks,
         deleteTask,
         createTask,
+        editTask,
+        updateTask
       }}
     >
+      <div className="bg-[url('./assets/img-fondo.png')]">
       {props.children}
+      </div>
     </TaskContext.Provider>
   );
 }

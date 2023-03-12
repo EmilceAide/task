@@ -11,7 +11,7 @@ export const task = [
     id: 1,
     title: "Mi segunda tarea",
     description: "Hola, esta es la primer tarea",
-    level: LEVELS.NORMAL,
+    level: LEVELS.URGENT,
     completed: false,
   },
   {
@@ -25,7 +25,7 @@ export const task = [
     id: 3,
     title: "Mi primer tarea",
     description: "Hola, esta es la primer tarea",
-    level: LEVELS.NORMAL,
+    level: LEVELS.BLOCKING,
     completed: false,
   },
   {
