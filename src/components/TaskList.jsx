@@ -13,10 +13,16 @@ function TaskList() {
     );
   }
   return (
-    <div className="grid grid-cols-4 gap-2">
-      {tasks.map((task) => (
-        <TaskCard key={task.id} task={task} />
-      ))}
+    <div>
+      <h1 className="text-white text-4xl font-bold text-center">
+        {" "}
+        Tus Tareas:{" "}
+      </h1>
+      <div className="grid grid-cols-4 gap-2">
+        {tasks.map((task) => (
+          <TaskCard key={task.id} task={task} />
+        ))}
+      </div>
     </div>
   );
 }
