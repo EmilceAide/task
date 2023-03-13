@@ -29,8 +29,8 @@ function TaskCard({ task }) {
         <Button
           styleBtn={`p-2 py-1 rounded-md mt-4 mr-2  ${
             task.level === LEVELS.NORMAL
-              ? "bg-green-600 hover:bg-green-300"
-              : "bg-gray-300 hover:bg-gray-500"
+              ? "bg-green-500"
+              : "bg-gray-400 hover:bg-green-400"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.NORMAL)}
         >
@@ -40,8 +40,8 @@ function TaskCard({ task }) {
         <Button
           styleBtn={`p-2 py-1 rounded-md mt-4 mr-2  ${
             task.level === LEVELS.URGENT
-              ? "bg-yellow-600 hover:bg-yellow-600"
-              : "bg-gray-300 hover:bg-gray-600"
+              ? "bg-yellow-500"
+              : "bg-gray-400 hover:bg-yellow-400"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.URGENT)}
         >
@@ -50,8 +50,8 @@ function TaskCard({ task }) {
         <Button
           styleBtn={`p-2 py-1 rounded-md mt-4  ${
             task.level === LEVELS.BLOCKING
-              ? "bg-red-600 hover:bg-red-600"
-              : "bg-gray-300 hover:bg-gray-600"
+              ? "bg-red-500"
+              : "bg-gray-400 hover:bg-red-400"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.BLOCKING)}
         >
