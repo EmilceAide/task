@@ -1,19 +1,19 @@
 import { useContext } from "react";
 import { LEVELS } from "../models/levels";
+import Button from "../pure/Button";
 import { TaskContext } from "./context/TaskContext";
 
 function TaskCard({ task }) {
-  const { deleteTask, editTask, updateTask  } = useContext(TaskContext);
+  const { deleteTask, editTask, updateTask } = useContext(TaskContext);
 
   const handleEdit = () => {
     editTask(task.id, { completed: true });
   };
 
-
   const handleLevelChange = (newLevel) => {
     updateTask({
       ...task,
-      level: newLevel
+      level: newLevel,
     });
   };
 
@@ -27,51 +27,45 @@ function TaskCard({ task }) {
       </p>
 
       <div>
-        <button
-          onClick={() => handleLevelChange(LEVELS.NORMAL)}
-          className={`bg-green-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-green-600 ${
+        <Button
+          styleBtn={`bg-green-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-green-600 ${
             task.level === LEVELS.NORMAL ? "bg-green-600" : "bg-gray-300"
           }`}
+          clickBtn={() => handleLevelChange(LEVELS.NORMAL)}
         >
+          {" "}
           Normal
-        </button>
-
-        <button
-          onClick={() => handleLevelChange(LEVELS.URGENT)}
-          className={`bg-yellow-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-yellow-600 ${
+        </Button>
+        <Button
+          styleBtn={`bg-yellow-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-yellow-600 ${
             task.level === LEVELS.URGENT ? "bg-yellow-600" : "bg-gray-300"
           }`}
+          clickBtn={() => handleLevelChange(LEVELS.URGENT)}
         >
           Urgente
-        </button>
-
-        <button
-          onClick={() => handleLevelChange(LEVELS.BLOCKING)}
-          className={`bg-red-500 p-2 py-1 rounded-md mt-4 hover:bg-red-600 ${
+        </Button>
+        <Button
+          styleBtn={`bg-red-500 p-2 py-1 rounded-md mt-4 hover:bg-red-600 ${
             task.level === LEVELS.BLOCKING ? "bg-red-600" : "bg-gray-300"
           }`}
+          clickBtn={() => handleLevelChange(LEVELS.BLOCKING)}
         >
           Bloqueado
-        </button>
-
+        </Button>
       </div>
-
- 
-
-      <button
-        className="bg-yellow-500 p-2 py-1 rounded-md mt-4 hover:bg-yellow-600"
-        onClick={() => deleteTask(task.id)}
-      >
+      <Button
+          styleBtn={"bg-yellow-500 p-2 py-1 rounded-md mt-4 hover:bg-yellow-600"}
+          clickBtn={() => deleteTask(task.id)}
+        >
         Eliminar
-      </button>
-
-      <button
-        className="bg-green-500 p-2 py-1 rounded-md mt-4 hover:bg-green-600 mr-2"
-        onClick={handleEdit}
-      >
-        Marcar como completado
-      </button>
-
+        </Button>
+        <Button
+          styleBtn={"bg-green-500 p-2 py-1 rounded-md mt-4 hover:bg-green-600 mr-2"}
+          clickBtn={handleEdit}
+        >
+              Marcar como completado
+        </Button>
+    
     </div>
   );
 }
