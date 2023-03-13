@@ -25,28 +25,33 @@ function TaskCard({ task }) {
       <p className="text-sm font-bold capitalize">
         Estado: {task.completed ? "Completado" : "Pendiente"}{" "}
       </p>
-
       <div>
         <Button
-          styleBtn={`bg-green-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-green-600 ${
-            task.level === LEVELS.NORMAL ? "bg-green-600" : "bg-gray-300"
+          styleBtn={`p-2 py-1 rounded-md mt-4 mr-2  ${
+            task.level === LEVELS.NORMAL
+              ? "bg-green-600 hover:bg-green-300"
+              : "bg-gray-300 hover:bg-gray-500"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.NORMAL)}
         >
-          {" "}
           Normal
         </Button>
+
         <Button
-          styleBtn={`bg-yellow-500 p-2 py-1 rounded-md mt-4 mr-2 hover:bg-yellow-600 ${
-            task.level === LEVELS.URGENT ? "bg-yellow-600" : "bg-gray-300"
+          styleBtn={`p-2 py-1 rounded-md mt-4 mr-2  ${
+            task.level === LEVELS.URGENT
+              ? "bg-yellow-600 hover:bg-yellow-600"
+              : "bg-gray-300 hover:bg-gray-600"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.URGENT)}
         >
           Urgente
         </Button>
         <Button
-          styleBtn={`bg-red-500 p-2 py-1 rounded-md mt-4 hover:bg-red-600 ${
-            task.level === LEVELS.BLOCKING ? "bg-red-600" : "bg-gray-300"
+          styleBtn={`p-2 py-1 rounded-md mt-4  ${
+            task.level === LEVELS.BLOCKING
+              ? "bg-red-600 hover:bg-red-600"
+              : "bg-gray-300 hover:bg-gray-600"
           }`}
           clickBtn={() => handleLevelChange(LEVELS.BLOCKING)}
         >
@@ -54,18 +59,19 @@ function TaskCard({ task }) {
         </Button>
       </div>
       <Button
-          styleBtn={"bg-yellow-500 p-2 py-1 rounded-md mt-4 hover:bg-yellow-600"}
-          clickBtn={() => deleteTask(task.id)}
-        >
+        styleBtn={"bg-yellow-500 p-2 py-1 rounded-md mt-4 hover:bg-yellow-600"}
+        clickBtn={() => deleteTask(task.id)}
+      >
         Eliminar
-        </Button>
-        <Button
-          styleBtn={"bg-green-500 p-2 py-1 rounded-md mt-4 hover:bg-green-600 mr-2"}
-          clickBtn={handleEdit}
-        >
-              Marcar como completado
-        </Button>
-    
+      </Button>
+      <Button
+        styleBtn={
+          "bg-green-500 p-2 py-1 rounded-md mt-4 hover:bg-green-600 mr-2"
+        }
+        clickBtn={handleEdit}
+      >
+        Marcar como completado
+      </Button>
     </div>
   );
 }
