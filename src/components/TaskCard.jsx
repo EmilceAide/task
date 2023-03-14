@@ -4,6 +4,7 @@ import Button from "../pure/Button";
 import { TaskContext } from "./context/TaskContext";
 
 function TaskCard({ task }) {
+  
   const { deleteTask, editTask, updateTask } = useContext(TaskContext);
 
   const handleEdit = () => {
@@ -18,14 +19,12 @@ function TaskCard({ task }) {
   };
 
   return (
-    <div className="bg-gray-800 text-white p-4 rounded-md">
-      <h1 className="text-xl font-bold capitalize">{task.title}</h1>
-      <p className="text-gray-500 text-sm">{task.description}</p>
-      <p className="font-bold  text-sm capitalize">Prioridad: {task.level} </p>
-      <p className="text-sm font-bold capitalize">
-        Estado: {task.completed ? "Completado" : "Pendiente"}{" "}
-      </p>
-      <div>
+    <div className={`bg-gray-800 text-white p-4 rounded-md ${
+      task.completed  
+      ? "border-4 border-green-600"
+      :"border-4 border-indigo-600"
+    }`}>
+       <div>
         <Button
           styleBtn={`p-2 py-1 rounded-md mt-4 mr-2  ${
             task.level === LEVELS.NORMAL
@@ -58,6 +57,13 @@ function TaskCard({ task }) {
           Bloqueado
         </Button>
       </div>
+      <h1 className="text-xl font-bold capitalize">{task.title}</h1>
+      <p className="text-gray-500 text-sm">{task.description}</p>
+      <p className="font-bold  text-sm capitalize">Prioridad: {task.level} </p>
+      <p className="text-sm font-bold capitalize">
+        Estado: {task.completed ? "Completado" : "Pendiente"}{" "}
+      </p>
+     
       <Button
         styleBtn={"bg-yellow-500 p-2 py-1 rounded-md mt-4 hover:bg-yellow-600"}
         clickBtn={() => deleteTask(task.id)}
