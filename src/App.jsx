@@ -5,7 +5,7 @@ function App() {
   return (
     <main 
     // className="bg-zinc-900 h-screen"
-    className="bg-[url('./assets/img-fondo.png')]"
+    // className="bg-[url('./assets/img-fondo.png')]"
     >
       <div className="container mx-auto">
         <TaskForm />
