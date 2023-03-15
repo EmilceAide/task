@@ -56,7 +56,9 @@ export function TaskContextProvider(props) {
         updateTask
       }}
     >
-      <div className="bg-[url('./assets/img-fondo.png')]">
+      <div
+      //  className="bg-[url('./assets/img-fondo.png')]"
+      >
       {props.children}
       </div>
     </TaskContext.Provider>
