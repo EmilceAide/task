@@ -13,7 +13,9 @@ function TaskList() {
     );
   }
   return (
-    <div>
+    <div
+    className="bg-[url('./assets/img-fondo.png')]  p-8 pb-20"
+    >
       <h1 className="text-white text-4xl font-bold text-center">
         {" "}
         Tus Tareas:{" "}
